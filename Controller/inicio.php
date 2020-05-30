@@ -17,3 +17,27 @@
         <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
         <head>
 
+        <body>
+            <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <?php include'menu_superior.php';?>
+                div class="navbar-default sidebar" role="navigation">
+                     <div class="sidebar-nav navbar-collapse"> 
+                        <?php include'menu_lateral.php';?>  
+                     </div>
+
+                 </div>
+             /nav>
+             <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> SISTEMA PARA LA GESTION DE VISITAS</h1>
+                        <div class="page-header" ></div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <h1 >Bienvenido <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?></h1>
+                </div>
+            </div>
+        </div>
+
