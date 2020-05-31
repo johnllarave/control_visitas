@@ -40,4 +40,25 @@
                 </div>
             </div>
         </div>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/metisMenu.js"></script>
+        <script src="js/sb-admin-2.js"></script>
+        <script src="js/plugins/toastr/toastr.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                setTimeout(function() {
+                    toastr.options = {
+                        closeButton: true,
+                        progressBar: true,
+                        showMethod: 'slideDown',
+                        timeOut: 10000
+                    };
+                    toastr.success('Desarrollado por:<br>• John Alexander Llarave Herrán<br>• Jose Antonio Sanchez Gaona<br>•', 'Sistema control de visitas');
+                }, 100);
+            });
+        </script>
+    </body>
+</html>
 
