@@ -55,7 +55,7 @@
                         showMethod: 'slideDown',
                         timeOut: 10000
                     };
-                    toastr.success('Desarrollado por:<br>• John Alexander Llarave Herrán<br>• Cristian Camilo Vega Gómez<br>• Juan Manuel Parra Navarrete', 'Sistema control de visitas');
+                    toastr.success('Desarrollado por:<br>• John Alexander Llarave Herrán<br>• Jose Antonio Sanchez Gaona<br>•', 'Sistema control de visitas');
                 }, 100);
             });
         </script>
