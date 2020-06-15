@@ -52,7 +52,19 @@ $correo = $_GET['correo'];
                             <h2>Cambio de contraseña</h2>
                         </div>
                         <div class="panel-body">
-                            
+                            <form action="../Controller/CambioPassController.php" method="POST" id="valida_datos">
+                                <div class="form-group">
+                                    <label for="usuario"></label>
+                                    <input type="password" class="form-control" name="pass" id="pass" placeholder="Nueva contraseña" required autofocus>
+
+                                    <label for="password"></label>
+                                    <input type="password" class="form-control" name="pass_val" id="pass_val" placeholder="Repita contraseña" required>
+                                    <input type="hidden" name="token" value="<?php echo $token?>">
+                                    <input type="hidden" name="correo" value="<?php echo $correo?>">
+                                </div>
+
+                                <input type="submit" name="btn_pass" class="btn btn btn-success btn-block" value="Ingresar">
+                            </form>
                         </div>
                     </div>
                 </div>
