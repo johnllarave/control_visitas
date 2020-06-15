@@ -36,3 +36,14 @@ class ActualizaPassController {
 	    }
 	}
 }
+if (isset($_POST['btn_pass'])) {
+	$valida = new ActualizaPassController();
+	$valida->validaPass();
+}
+
+if (isset($_POST['btn_act_pass'])) {
+	$valida = new ActualizaPassController();
+	$valida->actualizaPass(1);
+}
+
+?>
