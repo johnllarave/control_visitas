@@ -4,6 +4,7 @@
         <a href="inicio.php"><i class="fa fa-home"></i>Inicio</a>
     </li>
     <?php
+        //Condicion para que el administrador pueda crear usuarios
         if ($_SESSION['id_rol'] == '1') {
     ?>
             <li>
