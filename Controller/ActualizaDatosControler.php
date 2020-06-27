@@ -23,7 +23,8 @@ class ActualizaDatosController {
 		$result = $instancia_actualiza->actualza($nombre, $apellido, $correo, $telefono);
 
 		if ($result == 'ok') {
-			header("location:../View/actualiza_datos.php?success");
+			//header("location:../View/actualiza_datos.php?success");
+			return "Prueba OK....";
 		}
 	}
 }
