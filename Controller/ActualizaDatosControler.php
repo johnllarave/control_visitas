@@ -12,20 +12,20 @@ class ActualizaDatosController {
 		return $row;
 	}
 
-	function actualizaDatos() {
+	function actualizaDatos($nombre, $apellido, $correo, $telefono) {
 
-		$nombre = $_POST['nombre'];
+		/*$nombre = $_POST['nombre'];
 		$apellido = $_POST['apellido'];
 		$correo = $_POST['correo'];
-		$telefono = $_POST['telefono'];
+		$telefono = $_POST['telefono'];*/
 
 		$instancia_actualiza = new ActualizaDatosModel();
 		$result = $instancia_actualiza->actualza($nombre, $apellido, $correo, $telefono);
 
-		if ($result == 'ok') {
+		//if ($result == 'ok') {
 			//header("location:../View/actualiza_datos.php?success");
-			return "Prueba OK....";
-		}
+			return $result;
+		//}
 	}
 }
 

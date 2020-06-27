@@ -8,8 +8,8 @@ class ActualizaDatosModel {
 	private $conexion;
 
 	public function __construct() {
-		$this->con = new Config();
-		$this->conexion = $this->con->conexion();
+		//$this->con = new Config();
+		//$this->conexion = $this->con->conexion();
 	}
 
 	function datos() {
@@ -30,9 +30,11 @@ class ActualizaDatosModel {
 
         $act_datos="UPDATE usuario SET nombre='".$nombre."', apellido='".$apellido."', correo='".$correo."', telefono='".$telefono."'  
                 	WHERE id_usuario = '".$_SESSION['id_usuario']."'";
+
+         $datos = $nombre ." ". $apellido ." ". $correo ." ". $telefono;
     	//$this->conexion->query($act_datos) or die(mysqli_errno($this->conexion) . ": " . mysqli_error($this->conexion) . " ");
 
-        return "ok";
+        return $datos;
 	}
 }
 
