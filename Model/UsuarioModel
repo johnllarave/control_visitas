@@ -53,4 +53,20 @@ class UsuarioModel {
 
         return "ok";
 	}
-    
+    function actualiza($nombre, $apellido, $documento, $correo, $telefono, $id) {
+	    $nombre = utf8_decode(mysqli_real_escape_string($this->conexion, $nombre));
+	    $apellido = utf8_decode(mysqli_real_escape_string($this->conexion, $apellido));
+	    $documento = utf8_decode(mysqli_real_escape_string($this->conexion, $documento));
+	    $correo = utf8_decode(mysqli_real_escape_string($this->conexion, $correo));
+	    $telefono = utf8_decode(mysqli_real_escape_string($this->conexion, $telefono));
+	    $id = utf8_decode(mysqli_real_escape_string($this->conexion, $id));
+
+        $query="UPDATE usuario SET nombre='".$nombre."', apellido='".$apellido."', documento='".$documento."', correo='".$correo."', telefono='".$telefono."'  
+                WHERE id_usuario = '".$id."'";
+    	$this->conexion->query($query) or die(mysqli_errno($this->conexion) . ": " . mysqli_error($this->conexion) . " ");
+
+        return "ok";
+	}
+}
+
+?>
