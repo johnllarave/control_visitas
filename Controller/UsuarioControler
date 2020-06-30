@@ -33,3 +33,31 @@ class UsuarioController {
 			header("location:../View/usuarios.php");
 		}
 	}
+    function actualizaUsuario() {
+
+		$nombre = $_POST['nombre'];
+		$apellido = $_POST['apellido'];
+		$documento = $_POST['documento'];
+		$correo = $_POST['correo'];
+		$telefono = $_POST['telefono'];
+		$id = $_POST['id'];
+
+		$instancia_actualiza = new UsuarioModel();
+		$result = $instancia_actualiza->actualiza($nombre, $apellido, $documento, $correo, $telefono, $id);
+
+		if ($result == 'ok') {
+			header("location:../View/usuarios.php");
+		}		
+	}
+}
+
+if (isset($_POST['btn_usuario_crea'])) {
+	$crea = new UsuarioController();
+	$crea->creaUsuario();
+}
+
+if (isset($_POST['btn_usuario_act'])) {
+	$actualiza = new UsuarioController();
+	$actualiza->actualizaUsuario();
+}
+?>
