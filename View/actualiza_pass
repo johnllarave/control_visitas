@@ -1,0 +1,144 @@
+<?php
+
+require_once ("../Controller/ActualizaPassController.php");
+
+$datos = new ActualizaPassController();
+$resultado = $datos->validaPass();
+
+if ($resultado->num_rows == 0) {
+    $alerta = 0;
+} else {
+    $alerta = 1;
+}
+
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Actualiza Contraseña</title>
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/metisMenu.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+        <link href="css/sb-admin-2.css" rel="stylesheet">
+        <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/metisMenu.js"></script>
+        <script src="js/sb-admin-2.js"></script>
+        <script src="js/plugins/toastr/toastr.min.js"></script>
+
+        <script src="js/jquery.validate.js"></script>
+
+        <script>
+            $().ready(function () {
+                $("#valida_pass").validate({
+                    rules: {
+                        pass_validar: {
+                            required: true
+                        }
+                    },
+                });
+
+                $("#actualiza_pass").validate({
+                    rules: {
+                        pass: {
+                            required: true,
+                            minlength: 6
+                        },
+
+                        verifica_pass: {
+                            required: true,
+                            equalTo: "#pass"
+                        }
+                    },
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <?php include'menu_superior.php';?>
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <?php include'menu_lateral.php';?>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>SISTEMA PARA LA GESTION DE VISITAS</h1>
+                        <div class="page-header" ></div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Actualizar Contraseña</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12"><br>
+                                    <form action="" method="POST" id="valida_pass">
+                                        <div class="form-group col-lg-12">
+                                            <div class="form-group col-lg-6">
+                                                <label for="pass_validar">Contraseña actual</label>
+                                                <input type="password" class="form-control" name="pass_validar" id="pass_validar" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-12">
+                                            <div class="form-group col-lg-6">
+                                                <input type="submit" class="btn btn-success" value="Continuar" name="btn_pass">
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <?php
+
+                                        $password_temp = $_POST['pass_validar'];
+
+                                        if ($alerta == 0) {
+                                            echo "<h5 id='error'>Ingrese su contraseña para continuar</h5>";
+                                        } else {
+                                    ?>
+                                            <form action="../Controller/ActualizaPassController.php" method="POST" id="actualiza_pass">
+                                                <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-6">
+                                                        <br>
+                                                        <input type="hidden" name="pass_actual" id="pass_actual" value="<?php echo $password_temp?>">
+
+                                                        <label for="pass">Nueva contraseña</label>
+                                                        <input type="password" class="form-control" name="pass" id="pass" required>
+                                                        <br>
+                                                        <label for="verifica_pass">Repita contraseña</label>
+                                                        <input type="password" class="form-control" name="verifica_pass" id="verifica_pass" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <div class="form-group col-lg-6">
+                                                        <input type="submit" class="btn btn-success" value="Actualizar" name="btn_act_pass">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
