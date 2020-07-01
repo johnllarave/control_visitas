@@ -1,0 +1,27 @@
+<?php
+
+require_once ("../Controller/UsuarioController.php");
+
+if ($_SESSION['id_rol'] == 3) {
+    header("location:inicio.php");
+}
+
+if ($_GET['us'] == "") {
+    $formulario = "Creación";
+    $op = "btn_usuario_crea";
+} else {
+    $formulario = "Actualización";
+    $op = "btn_usuario_act";
+    $id_usuario = $_GET['us'];
+
+    $datos = new UsuarioController();
+    $result = $datos->buscaDatos($id_usuario);
+    $row = $result->fetch_array();
+
+    $id_usuario = $row['id_usuario'];
+    $documento = $row['documento'];
+    $nombre = utf8_encode($row['nombre']);
+    $apellido = utf8_encode($row['apellido']);
+    $correo = $row['correo'];
+    $telefono = $row['telefono'];
+}
