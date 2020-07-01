@@ -1,0 +1,32 @@
+<?php
+
+require_once ("../Controller/UsuarioController.php");
+
+$datos = new UsuarioController();
+$result_activo = $datos->validaDatos();
+
+if ($_SESSION['id_rol'] == 3) {
+    header("location:inicio.php");
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Usuarios</title>
+        <!--<link rel="icon" href="img/favicon.ico" type="image/x-icon">-->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/metisMenu.css" rel="stylesheet">
+        <link href="css/datatables.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <link href="css/sb-admin-2.css" rel="stylesheet">
+        <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+    
