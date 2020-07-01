@@ -29,4 +29,87 @@ if ($_SESSION['id_rol'] == 3) {
     </head>
 
     <body>
-    
+            <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <?php include'menu_superior.php';?>
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <?php include'menu_lateral.php';?>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Menu Vista y creación de usuarios</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a href="form_usuarios.php"><button type="button" class="btn btn-success">Crear usuario</button></a>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="wrapper wrapper-content animated fadeInRight">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="ibox float-e-margins">
+                                                        <div class="ibox-content">
+                                                            <div class="table-responsive">
+                                                                <table width="100%" class="table table-striped table-bordered table-hover" id="tabla" style="">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Usuario</th>
+                                                                            <th>Documento</th>
+                                                                            <th>Correo</th>
+                                                                            <th>Telefono</th>
+                                                                            <th>Rol</th>
+                                                                            <th>Editar</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                            while ($row_activo = $result_activo->fetch_assoc()) {
+                                                                                $id_usuario = $row_activo['id_usuario'];
+                                                                                echo "<tr>";
+                                                                                echo "<td>".utf8_encode($row_activo['usuario'])."</td>";
+                                                                                echo "<td>".utf8_encode($row_activo['documento'])."</td>";
+                                                                                echo "<td>".$row_activo['correo']."</td>";
+                                                                                echo "<td>".$row_activo['telefono']."</td>";
+                                                                                echo "<td>".utf8_encode($row_activo['nombre_rol'])."</td>";
+                                                                                echo "<td><a href='form_usuarios.php?us=".$id_usuario."'><i class='fa fa-wrench'></a></i></td>";
+                                                                                echo "</tr>";
+                                                                            }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/metisMenu.js"></script>
+        <script src="js/sb-admin-2.js"></script>
+        <script src="js/datatables.min.js"></script>
+
+        <?php
+            include 'config_table.php';
+        ?>
+    </body>
+</html>
