@@ -1,6 +1,6 @@
 <?php
 
-include '../Model/config.php';
+include './Model/config.php';
 
 class ActualizaDatosModel {
 

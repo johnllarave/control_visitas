@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../Model/ActualizaDatosModel.php");
+require_once ("./Model/ActualizaDatosModel.php");
 
 class ActualizaDatosController {
 
