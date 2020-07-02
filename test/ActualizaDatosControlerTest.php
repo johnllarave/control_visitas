@@ -9,9 +9,12 @@ class ActualizaDatosControlerTest extends TestCase {
 
     public function TestActualizaDatosControler(){
 
-        $actualizadatosmodel = new ActualizaDatosModel();
-        $this->assertEquals("John Llarave jollarave@poligran.edu.co 3212713762", $actualizadatosmodel->actualizaDatos("John", "Llarave", "jollarave@poligran.edu.co", "3212713762"));
+        $actualizadatoscontroller = new ActualizaDatosController();
+        $this->assertEquals("John Llarave jollarave@poligran.edu.co 3212713762", $actualizadatoscontroller->actualizaDatos("John", "Llarave", "jollarave@poligran.edu.co", "3212713762"));
     }
 }
+
+/*$datos = new ActualizaDatosControlerTest();
+$datos->TestActualizaDatosControler();*/
 
 ?>
