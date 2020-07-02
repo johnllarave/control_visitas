@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
+require 'vendor/autoload.php';
 include '../Controller/ActualizaDatosControler.php';
 
 class ActualizaDatosControlerTest {
