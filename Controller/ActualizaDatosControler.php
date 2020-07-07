@@ -2,8 +2,15 @@
 
 require_once ("./Model/ActualizaDatosModel.php");
 
+/**
+ * Clase para actualziar los datos
+ */
 class ActualizaDatosController {
 
+	/**
+	 * Funcion para validar los datos antes de actualizarlos
+	 * @return Array
+	 */
 	function validaDatos() {
         $instancia_datos = new ActualizaDatosModel();
 		$result = $instancia_datos->datos();
@@ -12,6 +19,10 @@ class ActualizaDatosController {
 		return $row;
 	}
 
+	/**
+	 * Funcion para actualizar los datos
+	 * @return void
+	 */
 	function actualizaDatos($nombre, $apellido, $correo, $telefono) {
 
 		/*$nombre = $_POST['nombre'];

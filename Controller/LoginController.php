@@ -2,8 +2,16 @@
 
 require_once ("../Model/LoginModel.php");
 
+/**
+ * Validación de datos para dar ingreso al usuario si los datos son correctos
+ */
 class LoginController {
 
+	/**
+	 * Valida el usuario y la contraseña para redirecionarlo a la pagina inicio
+	 * si no son correctos los datos lo envia al index sin poder ingresar a la aplicación
+	 * @return void
+	 */
 	function validaLogin() {
 		$user = $_POST['user'];
         $pass = $_POST['pass'];

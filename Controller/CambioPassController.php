@@ -2,8 +2,15 @@
 
 require_once ("../Model/CambioPassModel.php");
 
+/**
+ * Cambio de la contraseña por envio de correo
+ */
 class CambioPassController {
 
+	/**
+	 * Cambio de contraseña al validar el token generado automaticamente
+	 * @return void
+	 */
 	function cambioPass() {
 		$pass = $_POST['pass'];
 	    $token = $_POST['token'];

@@ -2,8 +2,15 @@
 
 require_once ("../Model/ActualizaPassModel.php");
 
+/**
+ * Clase para actualizar la contraseña
+ */
 class ActualizaPassController {
 
+	/**
+	 * Validación de la contraseña para poder acceder al input para actualizarla
+	 * @return array
+	 */
 	function validaPass() {
 
 		$pass_validar = sha1($_POST['pass_validar']);
@@ -14,6 +21,11 @@ class ActualizaPassController {
 		return $result;
 	}
 
+	/**
+	 * Función para actualizar la contraseña
+	 * @param String $valor 
+	 * @return void
+	 */
 	function actualizaPass($valor) {
 
 		if ($valor == 1) {

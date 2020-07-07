@@ -2,8 +2,15 @@
 
 require_once ("../Model/UsuarioModel.php");
 
+/**
+ * Clase para la administración de usuarios
+ */
 class UsuarioController {
 
+	/**
+	 * Funcion valida los datos del usuario
+	 * @return void
+	 */
 	function validaDatos() {
         $instancia_datos = new UsuarioModel();
 		$result = $instancia_datos->datos();
@@ -11,6 +18,11 @@ class UsuarioController {
 		return $result;
 	}
 
+	/**
+	 * Función para cargar los datos del usuario en el formulario
+	 * @param int $id_usuario 
+	 * @return array
+	 */
 	function buscaDatos($id_usuario) {
         $instancia_datos = new UsuarioModel();
 		$result = $instancia_datos->buscaUsuario($id_usuario);
@@ -18,6 +30,10 @@ class UsuarioController {
 		return $result;
 	}
 
+	/**
+	 * Función para almacenar la información de los usuarios creados en la base de datos
+	 * @return void
+	 */
 	function creaUsuario() {
 
 		$nombre = $_POST['nombre'];
@@ -33,6 +49,11 @@ class UsuarioController {
 			header("location:../View/usuarios.php");
 		}
 	}
+
+	/**
+	 * Función para actualizar la información de los usuarios
+	 * @return void
+	 */
     function actualizaUsuario() {
 
 		$nombre = $_POST['nombre'];
