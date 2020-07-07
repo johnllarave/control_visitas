@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-//require './vendor/autoload.php';
+require './vendor/autoload.php';
 include './Controller/ActualizaDatosControler.php';
 
 class ActualizaDatosControlerTest extends TestCase {
@@ -13,8 +13,5 @@ class ActualizaDatosControlerTest extends TestCase {
         $this->assertEquals("John Llarave jollarave@poligran.edu.co 3212713762", $actualizadatoscontroller->actualizaDatos("John", "Llarave", "jollarave@poligran.edu.co", "3212713762"));
     }
 }
-
-/*$datos = new ActualizaDatosControlerTest();
-$datos->TestActualizaDatosControler();*/
 
 ?>
